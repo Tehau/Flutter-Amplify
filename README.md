@@ -1,16 +1,11 @@
 # amplify_trips_planner
 
-A new Flutter project.
+A Flutter project with Amplify. It's a trips planner App
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application with Amplify.
 
-A few resources to get you started if this is your first Flutter project:
+There is the tutorial link for this project : 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [AWS Amplify](https://aws.amazon.com/fr/getting-started/hands-on/build-flutter-mobile-app-part-one/)
