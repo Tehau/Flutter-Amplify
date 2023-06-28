@@ -1,5 +1,7 @@
-import 'package:amplify_trips_planner/common/navigation/router/routes.dart';
+import 'package:amplify_trips_planner/features/trip/ui/edit_trip_page/edit_trip_page.dart';
+import 'package:amplify_trips_planner/features/trip/ui/trip_page/trip_page.dart';
 import 'package:amplify_trips_planner/features/trip/ui/trips_list/trips_list_page.dart';
+import 'package:amplify_trips_planner/models/ModelProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
@@ -32,6 +34,23 @@ class TripsPlannerApp extends StatelessWidget {
             ),
           ),
         ),
+        GoRoute(
+          path: '/trip/:id',
+          name: AppRoute.trip.name,
+          builder: (context, state) {
+            final tripId = state.pathParameters['id']!;
+            return TripPage(tripId: tripId);
+          },
+        ),
+        GoRoute(
+          path: '/edittrip/:id',
+          name: AppRoute.edittrip.name,
+          builder: (context, state) {
+            return EditTripPage(
+              trip: state.extra! as Trip,
+            );
+          },
+        ),
       ],
       errorBuilder: (context, state) => Scaffold(
         body: Center(
@@ -47,8 +66,7 @@ class TripsPlannerApp extends StatelessWidget {
         routerDelegate: router.routerDelegate,
         builder: Authenticator.builder(),
         theme: ThemeData(
-          primarySwatch: constants.primaryColor,
-          backgroundColor: const Color(0xff82CFEA),
+          colorScheme: ColorScheme.fromSwatch(primarySwatch: constants.primaryColor).copyWith(background: const Color(0xff82CFEA)),
         ),
       ),
     );
